@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Depends
 from fastapi.security import OAuth2PasswordRequestForm
 from database import SessionLocal, Document, User, AuditLog
-from backend.admin_routes import router as admin_router
+from admin_routes import router as admin_router
 
 import shutil
 import uuid
