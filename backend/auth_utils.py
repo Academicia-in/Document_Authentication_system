@@ -26,7 +26,7 @@ def create_access_token(data: dict):
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 def get_current_user(token: str = Depends(oauth2_scheme)):
-    from backend.database import SessionLocal, User
+    from  database import SessionLocal, User
     credentials_exception = HTTPException(
         status_code=401,
         detail="Could not validate credentials"
