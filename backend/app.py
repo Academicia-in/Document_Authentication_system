@@ -40,7 +40,7 @@ def run_migrations():
     import sqlalchemy as sa
     from sqlalchemy import inspect
     try:
-        from backend.database import Base, engine
+        from database import Base, engine
         Base.metadata.create_all(bind=engine)
         db = SessionLocal()
         inspector = inspect(db.bind)
@@ -104,7 +104,7 @@ async def serve_viewer(doc_id: str):
 async def serve_admin():
     return FileResponse(os.path.join(REACT_DIST, "index.html"))
 
-from backend.auth_utils import hash_password, verify_password, create_access_token, get_current_user, SECRET_KEY, ALGORITHM
+from auth_utils import hash_password, verify_password, create_access_token, get_current_user, SECRET_KEY, ALGORITHM
 
 def hash_file(filepath):
     digest = hashes.Hash(hashes.SHA256())
